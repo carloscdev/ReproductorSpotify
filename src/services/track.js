@@ -1,19 +1,19 @@
-import platziMusicService from './platzi-music'
+import platziMusicService from "./platzi-music";
 
-const trackService = {}
+const trackService = {};
 
-trackService.search = function (q, offset = 0) {
-  const type = 'track'
+trackService.search = function(q, offset = 0) {
+  const type = "track";
 
-  return platziMusicService.get('/search', {
-    params: { q, type, offset }
-  })
-    .then(res => res.data)
-}
+  return platziMusicService
+    .get("/search", {
+      params: { q, type, offset },
+    })
+    .then((res) => res.data);
+};
 
-trackService.getById = function (id) {
-  return platziMusicService.get(`/tracks/${id}`)
-    .then(res => res.data)
-}
+trackService.getById = function(id) {
+  return platziMusicService.get(`/tracks/${id}`).then((res) => res.data);
+};
 
-export default trackService
+export default trackService;

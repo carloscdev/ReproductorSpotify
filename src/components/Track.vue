@@ -1,6 +1,6 @@
 <template>
-  <div class="card" @click="selectTrack">
-    <div class="card-image">
+  <div class="card">
+    <div class="card-image" v-if="track && track.album">
       <figure class="image is-1by1">
         <img :src="track.album.images[0].url" alt="" />
       </figure>
@@ -19,11 +19,14 @@
           </div>
         </div>
         <div class="content">
-          <small>{{ track.duration_ms }}</small>
+          <small>{{ track.duration_ms|ms-to-mm }} min</small>
           <nav class="level">
             <div class="level-left  is-primary">
-              <a class="level-item">
-                ▶
+              <a v-blur="track.preview_url" @click="selectTrack" class="level-item">
+                Reproducir
+              </a>
+              <a @click="goToTrack(track.id)" class="level-item">
+                Ver Detalles
               </a>
             </div>
           </nav>
@@ -40,8 +43,10 @@ export default {
   },
   methods: {
     selectTrack() {
-      this.$emit("select", this.track.id);
-      this.$bus.$emit("set-track", this.track);
+      this.$store.commit('setTrack', this.track)
+    },
+    goToTrack(id) {
+      this.$router.push({ name: "track", params: { id } });
     },
   },
 };

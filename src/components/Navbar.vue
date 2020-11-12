@@ -3,7 +3,7 @@
     <div class="contenedor">
       <img
         class="logoMarca"
-        src="https://cdn.icon-icons.com/icons2/2201/PNG/512/apple_music_android_logo_icon_134021.png"
+        src="https://images.vexels.com/media/users/3/158512/isolated/lists/a78bf56a47c76f97d05987adda9991d1-auriculares-auriculares-silueta.png"
         alt="Logo"
       />
       <div>
@@ -36,6 +36,9 @@ export default {
       width: 90px;
     }
   }
+   @media (max-width: 768px){
+       max-height: 400px;
+   }
 }
 .logoMarca {
   @media (max-width: 768px) {

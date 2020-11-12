@@ -134,5 +134,8 @@ export default {
 }
 .home {
   padding-top: 15vw;
+  @media (max-width: 768px){
+    padding-top: 25vw;
+  }
 }
 </style>
